@@ -134,7 +134,7 @@ const addEmployee = () => {
         {
             name: "firstName",
             type: "input",
-            message: "What is the new employee's last name?"
+            message: "What is the new employee's first name?"
         },
         {
             name: "lastName",
@@ -153,7 +153,7 @@ const addEmployee = () => {
         }
     ])
     .then((answer) => {
-        connection.query("INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)", [answer.firstname, answer.lastname, answer.roleID, answer.managerID], (err,res) => {
+        connection.query("INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)", [answer.firstName, answer.lastName, answer.roleID, answer.managerID], (err,res) => {
             if (err) throw err;
             console.table(res);
             startApp();
